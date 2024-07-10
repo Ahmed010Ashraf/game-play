@@ -85,7 +85,6 @@ function display(games = []){
     boxs.forEach(function(box){
         box.addEventListener("click", function(e){
             getdata(this.dataset.id);
-            console.log(this.dataset.id);
             document.querySelector(".game-discription").style.display = "block";
             document.querySelector(".all-game-sec").style.display = "none";
             // console.log("box");
@@ -114,13 +113,13 @@ async function getdata(id){
     let response = await api.json();
     loader.style.display = "none";
     displayDitails(response);
-    console.log(response);
 }
 // getdata(329)
 
 function displayDitails (detailsOfGames){
     let detalisOfGame = new detailss(detailsOfGames.id , detailsOfGames.title , detailsOfGames.genre,detailsOfGames.platform , detailsOfGames.status , detailsOfGames.thumbnail , detailsOfGames.description ,detailsOfGames.game_url )
     let de = document.querySelector(".game-discription");
+    de.innerHTML = "";
     de.innerHTML = `
     <div class="title container">
         <h2 class="tit">Details Game</h2>
@@ -146,7 +145,6 @@ function displayDitails (detailsOfGames){
     closee.addEventListener("click",function(e) {
         document.querySelector(".game-discription").style.display = "none";
         document.querySelector(".all-game-sec").style.display = "block";
-        console.log("closeeeeee");
     })
 
 }
