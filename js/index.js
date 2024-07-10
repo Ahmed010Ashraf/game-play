@@ -100,6 +100,7 @@ getapi("MMORPG");
 // handle api of details 
 
 async function getdata(id){
+    document.querySelector(".game-discription").innerHTML = "";
     let loader = document.querySelector(".loader");
     loader.style.display = "flex";
     const options = {
@@ -119,7 +120,6 @@ async function getdata(id){
 function displayDitails (detailsOfGames){
     let detalisOfGame = new detailss(detailsOfGames.id , detailsOfGames.title , detailsOfGames.genre,detailsOfGames.platform , detailsOfGames.status , detailsOfGames.thumbnail , detailsOfGames.description ,detailsOfGames.game_url )
     let de = document.querySelector(".game-discription");
-    de.innerHTML = "";
     de.innerHTML = `
     <div class="title container">
         <h2 class="tit">Details Game</h2>
